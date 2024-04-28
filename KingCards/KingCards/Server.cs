@@ -105,7 +105,7 @@ public void ConnectClient(int port) //Tạo server
          server.Listen(10);
          Socket client = server.Accept();
          clientList.Add(client);
-     });*/
+     });*/ // hello
 
                 try
                 {
