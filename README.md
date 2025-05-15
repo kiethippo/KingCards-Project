@@ -1,58 +1,59 @@
-📌 Tóm tắt nội dung chính
-🔹 Tổng quan về trò chơi
-Giới thiệu: Trò chơi sử dụng bộ bài Tây 52 lá, chơi theo luật "Tiến lên miền Nam".
+# 🃏 Tiến Lên Miền Nam LAN – Nhóm 3 | NT106.O22
 
-Luật chơi: Bao gồm các kiểu bài hợp lệ (đôi, sảnh, tứ quý, đôi thông...), cách đè bài, chặt heo, và các tình huống đặc biệt như tới trắng, cháy bài, thúi, phạt...
+## 📌 Giới thiệu
 
-🔹 Triển khai đồ án
-Tính năng chính của hệ thống:
+Đây là dự án môn **Lập trình mạng căn bản**, phát triển trò chơi **Tiến Lên Miền Nam** hoạt động thông qua kết nối **mạng LAN**, giúp nhiều người có thể chơi với nhau từ các máy khác nhau.
 
-Tạo phòng chơi tối đa 4 người.
+Dự án được phát triển bằng **ngôn ngữ C#**, sử dụng **WinForms** cho giao diện và **Socket TCP/IP** cho kết nối mạng.
 
-Tham gia/thoát phòng chơi.
+---
 
-Đánh bài/Skip lượt.
+## 🎮 Tính năng nổi bật
 
-Xử lý các trường hợp kết thúc ván chơi, bắt đầu ván mới.
+- 🎲 Tạo phòng chơi (tối đa 4 người)
+- 👥 Tham gia / Thoát phòng chơi
+- 🃏 Đánh bài / Bỏ lượt
+- ✅ Kiểm tra bài hợp lệ
+- 🏆 Xác định người thắng / Tạo ván chơi mới
+- ⚡ Xử lý các trường hợp đặc biệt: tới trắng, chặt, thúi, cháy bài...
 
-So sánh hợp lệ giữa bài người chơi và bài trên bàn.
+---
 
-Mô hình phân rã chức năng:
+## 🧩 Cách hoạt động (Kỹ thuật)
 
-Bao gồm sơ đồ chức năng tổng quát và chi tiết, giúp minh họa luồng hoạt động của hệ thống.
+- Mỗi lá bài được định danh bằng string (ví dụ: `"2H"` cho heo cơ).
+- Server gửi và kiểm soát lượt chơi qua `TURN`.
+- Client kiểm tra lượt và gửi `DISCARD` hoặc `SKIP`.
+- Giao tiếp Client ↔ Server sử dụng các gói tin với:
+- `Control Message` (`CONNECT`, `DISCARD`, `TURN`, `END`, ...)
+- Tên người chơi, danh sách bài, hành động, v.v.
 
-Cấu trúc gói tin (packet):
+---
 
-Client → Server: Các lệnh như CONNECT, START, DISCARD, SKIP... kèm thông tin bài.
+## 🚀 Hướng dẫn sử dụng
 
-Server → Client: Các thông điệp như INIT, SETUP, UPDATE, TURN... dùng để chia bài, thông báo lượt, cập nhật bàn chơi.
+1. Mở bằng **Visual Studio**.
+2. Chạy file `Server.exe` để tạo phòng.
+3. Chạy `Client.exe` trên các máy khác để tham gia (cùng mạng LAN).
 
-Giao diện:
+> ⚠️ Lưu ý: Các thiết bị cần kết nối cùng một mạng LAN để hoạt động chính xác.
 
-Có ba giao diện: màn hình vào game, lobby và bàn chơi chính.
+---
 
-Tổng quan lập trình:
+## 👥 Thành viên nhóm
 
-Mỗi lá bài được định danh bằng string (VD: "2H" cho heo cơ).
+| STT | Họ và tên               | MSSV      |
+|-----|--------------------------|-----------|
+| 1   | Huỳnh Ngọc Anh Kiệt     | 22520718  |
+| 2   | Huỳnh Thanh Long        | 22520812  |
+| 3   | Bùi Ngọc Khánh Linh     | 22520754  |
 
-Server quản lý và broadcast lượt đi, Client nhận và kiểm tra có phải lượt mình không.
+---
 
-Mọi hành động người chơi đều được gửi kèm header, Server phân tích và broadcast lại cho các client khác.
+## 🔗 Demo & liên kết
 
-🔹 Phân công công việc
-Mỗi thành viên chịu trách nhiệm về giao diện, logic, báo cáo, và luật chơi với tỉ lệ công việc rõ ràng.
+- 📹 **Demo:** [Link Google Drive](https://drive.google.com/drive/folders/1n5nc2Q4P7gdJPBuCbeY1lmjuMhBgmFq4?usp=sharing)
+- 💻 **Source Code:** [GitHub](https://github.com/kiethippo/KingCards-Project.git)
 
-✅ Ưu điểm
-Triển khai đầy đủ luật chơi phức tạp của Tiến Lên Miền Nam.
+---
 
-Xử lý mạng socket giữa các client/server khá chi tiết.
-
-Có tài liệu thiết kế (mô hình phân rã, cấu trúc gói tin).
-
-Phân công nhóm rõ ràng và công bằng.
-Nhóm 3 thực hiện đồ án gồm các thành viên:
-
-
-Huỳnh Ngọc Anh Kiệt	22520718
-Huỳnh Thanh Long	22520812
-Bùi Ngọc Khánh Linh	22520754
